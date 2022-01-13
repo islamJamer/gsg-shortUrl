@@ -30,15 +30,15 @@ class ShortUrlController extends Controller
         $data = $request->all();
         $urls = ShortUrl::create($data);
         $shortUrl = $data['short_url'];
-        $data['short_url'] = "http://127.0.0.1:8000/shortUrl/$shortUrl";
+        $data['short_url'] = "http://127.0.0.1:8000/shrt/$shortUrl";
         
         // return redirect(route('shortUrl.index'), compact('data'));
         return view('index', compact('data'));
     }
 
-    public function redirect($id){
-        $o_url = ShortUrl::where('short_url', '=', $id)->get();
+    public function redirect($code){
+        $url = ShortUrl::where('short_url', '=', $code)->get();
         // dd($o_url[0]->url);
-        return redirect()->away($o_url[0]->url);
+        return redirect()->away($url[0]->url);
     }
 }

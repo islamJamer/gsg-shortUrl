@@ -28,5 +28,5 @@ Route::get('/shortUrl', [ShortUrlController::class, 'index'])
 Route::post('/shortUrl', [ShortUrlController::class, 'post'])
         ->name('shortUrl.post');
 
-Route::get('/shortUrl/{id}', [ShortUrlController::class, 'redirect'])
+Route::get('/shrt/{code}', [ShortUrlController::class, 'redirect'])
         ->name('shortUrl.redirect');
