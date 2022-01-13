@@ -19,10 +19,13 @@
                 <form method="POST" action="{{ route('shortUrl.post') }}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" name="url" id="url" class="form-control" placeholder="Enter URL" value="{{ old($data['url']) }}">
+                        <input type="text" name="url" id="url" class="form-control @error('url') is-invalid @enderror" placeholder="Enter URL" required>
                         <div class="input-group-append">
                             <button class="btn btn-success" type="submit">Generate Shorten Link</button>
                         </div>
+                        @error('url')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
                     </div>
                 </form>
             </div>

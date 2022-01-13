@@ -21,6 +21,11 @@ class ShortUrlController extends Controller
     }
 
     public function post(Request $request){
+
+        $request->validate([
+            'url' => 'required|url'
+        ]);
+
         $url = $request->post('url');
         
         $random = Str::random(6);
