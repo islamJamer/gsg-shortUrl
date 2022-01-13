@@ -12,12 +12,13 @@ class ShortUrlController extends Controller
     //
 
     public function index(){
-        $data = [
-            'url' => '',
-            'short_url' => ''
-        ];
+        // $data = [
+        //     'url' => '',
+        //     'short_url' => ''
+        // ];
 
-        return view('index', compact('data'));
+        return view('index');
+        // return view('index', compact('data'));
     }
 
     public function post(Request $request){
@@ -37,8 +38,8 @@ class ShortUrlController extends Controller
         $shortUrl = $data['short_url'];
         $data['short_url'] = "http://127.0.0.1:8000/shortUrl/$shortUrl";
         
-        // return redirect(route('shortUrl.index'), compact('data'));
-        return view('index', compact('data'));
+        return view('index', compact('data'))
+                ->with('success', 'Your URL has been converted successfully!!');
     }
 
     public function redirect($code){

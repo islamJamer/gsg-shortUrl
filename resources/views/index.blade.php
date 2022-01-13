@@ -30,21 +30,19 @@
                 </form>
             </div>
             <div class="card-body">
-                {{--
-            @if (Session::has('success'))
-                <div class="alert alert-success">
-                    <p>{{ Session::get('success') }}</p>
-            </div>
+            
+            @if(!empty($success))
+            <div class="alert alert-success"> {{ $success }}</div>
             @endif
-            --}}
+            
             <div class="input-group mb-3">
                 <h4>You'r Url: </h4>
-                <input type="text" name="link" class="form-control" placeholder="URL" value="{{ $data['url'] }}" disabled>
+                <input type="text" name="link" class="form-control" placeholder="URL" value="{{ $data['url'] ?? '' }}" disabled>
             </div>
 
             <div class="input-group mb-3">
                 <h4>Short Url: </h4>
-                <input type="text" name="link" class="form-control" placeholder="Short URL" value="{{ $data['short_url'] }}" disabled>
+                <input type="text" name="link" class="form-control" placeholder="Short URL" value="{{ $data['short_url'] ?? '' }}" disabled>
             </div>
         </div>
     </div>
