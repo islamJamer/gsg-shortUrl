@@ -22,11 +22,14 @@ Route::get('/', function () {
 //     return view('index');
 // })->name('shortUrl.index');
 
-Route::get('/shortUrl', [ShortUrlController::class, 'index'])
-        ->name('shortUrl.index');
+Route::group([
+    'prefix' => '/shortUrl',
+    'as' => 'shortUrl.'
+], function() {
+    Route::get('/', [ShortUrlController::class, 'index'])->name('index');
 
-Route::post('/shortUrl', [ShortUrlController::class, 'post'])
-        ->name('shortUrl.post');
+    Route::post('/', [ShortUrlController::class, 'post'])->name('post');
 
-Route::get('/shrt/{code}', [ShortUrlController::class, 'redirect'])
-        ->name('shortUrl.redirect');
+    Route::get('/{code}', [ShortUrlController::class, 'redirect'])->name('redirect');
+});
+
