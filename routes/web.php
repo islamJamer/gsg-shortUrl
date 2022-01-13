@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/shortUrl', function () {
-//     return view('index');
-// })->name('shortUrl.index');
-
 Route::group([
     'prefix' => '/shortUrl',
     'as' => 'shortUrl.'

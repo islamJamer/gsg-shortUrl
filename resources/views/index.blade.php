@@ -4,10 +4,13 @@
 <head>
     <title>{{ config('title') }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+
 </head>
 
-<body>
-
+<body class="dark-mode hold-transition sidebar-mini">
     <div class="container">
         <h1>Create Your Short URL</h1>
 
