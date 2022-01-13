@@ -32,7 +32,12 @@
             <div class="card-body">
             
             @if(!empty($success))
-            <div class="alert alert-success"> {{ $success }}</div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+                {{ $success }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             @endif
             
             <div class="input-group mb-3">
@@ -48,6 +53,21 @@
     </div>
 
     </div>
+
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        window.setTimeout(function(){
+            $(".alert").alert('close')
+        }, 3000);
+    </script>
 
 </body>
 
